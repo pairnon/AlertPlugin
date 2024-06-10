@@ -1,0 +1,7 @@
+name: AlertPlugin
+version: 1.0.0
+main: io.papermc.alertplugin.Main
+description: Simple alert plugin
+author: pairnon
+website: https://github.com/pairnon/AlertPlugin
+api-version: '1.20'
