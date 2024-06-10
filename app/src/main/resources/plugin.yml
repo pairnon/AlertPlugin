@@ -6,6 +6,6 @@ author: pairnon
 website: https://github.com/pairnon/AlertPlugin
 api-version: '1.20'
 commands:
-  restartalert:
+  beginrestartalerts:
     description: Begin timed restart alerts
-    usage: restartalert
+    usage: beginrestartalerts

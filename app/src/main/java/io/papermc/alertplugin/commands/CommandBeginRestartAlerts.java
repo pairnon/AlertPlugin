@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 
 import io.papermc.alertplugin.Broadcasting;
 
-public class CommandRestartAlert implements CommandExecutor {
+public class CommandBeginRestartAlerts implements CommandExecutor {
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
