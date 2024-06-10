@@ -51,3 +51,7 @@ tasks {
         minecraftVersion("1.20.6")
     }
 }
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
