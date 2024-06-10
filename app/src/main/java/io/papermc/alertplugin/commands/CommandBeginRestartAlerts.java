@@ -23,12 +23,12 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
         
         Broadcasting.sendSuccessResponse(sender, "Beginning restart alerts (" + DURATION_IN_MINUTES + " minutes).");
 
-        beginRestartAlerts();
+        scheduleRestartAlerts();
 
         return true;
     }
 
-    private static void beginRestartAlerts() {
+    private static void scheduleRestartAlerts() {
 
         Broadcasting.broadcastRedAlert("Server restarting in " + DURATION_IN_MINUTES + " minutes.");
         Timer timer = new Timer();
