@@ -1,5 +1,6 @@
 package io.papermc.alertplugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
 import net.kyori.adventure.text.Component;
@@ -17,6 +18,10 @@ public class Broadcasting {
     
     public static void sendErrorResponse(CommandSender c, String message) {
         c.sendMessage(Component.text("[AP] " + message, NamedTextColor.RED));
+    }
+
+    public static void broadcastRedAlert(String message) {
+        Bukkit.broadcast(Component.text("[ALERT] " + message, NamedTextColor.RED));
     }
 
 }
