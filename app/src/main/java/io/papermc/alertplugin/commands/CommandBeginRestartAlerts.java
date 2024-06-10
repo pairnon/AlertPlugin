@@ -1,5 +1,6 @@
 package io.papermc.alertplugin.commands;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -13,7 +14,8 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
 
     private static final int DURATION_IN_MINUTES = 10;
 
-    private static int schedulingValueContainer = 0;
+    // private static int schedulingValueContainer = 0;
+    private static ArrayList<Integer> schedulingValuesContainer = new ArrayList<Integer>();
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -36,34 +38,37 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
         Timer timer = new Timer();
 
         for (int i = 5; i >= 1; i--) {
-            schedulingValueContainer = i;
+            schedulingValuesContainer.add(i);
+            int lastIndex = schedulingValuesContainer.size() - 1;
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValueContainer + " minutes.");
+                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minutes.");
                 }
-            }, calculateDelayFromMinutes(schedulingValueContainer));
+            }, calculateDelayFromMinutes(i));
 
         }
 
         for (int i = 30; i >= 20; i -= 10) {
-            schedulingValueContainer = i;
+            schedulingValuesContainer.add(i);
+            int lastIndex = schedulingValuesContainer.size() - 1;
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValueContainer + " seconds.");
+                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
                 }
-            }, calculateDelayFromSeconds(schedulingValueContainer));
+            }, calculateDelayFromSeconds(i));
         }
 
         for (int i = 10; i >= 1; i--) {
-            schedulingValueContainer = i;
+            schedulingValuesContainer.add(i);
+            int lastIndex = schedulingValuesContainer.size() - 1;
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValueContainer + " seconds.");
+                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
                 }
-            }, calculateDelayFromSeconds(schedulingValueContainer));
+            }, calculateDelayFromSeconds(i));
 
         }
     }
