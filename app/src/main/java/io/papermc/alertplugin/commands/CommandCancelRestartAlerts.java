@@ -23,6 +23,7 @@ public class CommandCancelRestartAlerts implements CommandExecutor {
         }
 
         Main.restartAlertsTimer.cancel();
+        Main.restartAlertsInProgress = false;
 
         Broadcasting.sendSuccessResponse(sender, "Restart alerts have been cancelled.");
 
