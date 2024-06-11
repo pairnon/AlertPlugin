@@ -9,14 +9,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import io.papermc.alertplugin.Broadcasting;
+import io.papermc.alertplugin.Main;
 
 public class CommandBeginRestartAlerts implements CommandExecutor {
 
     private static final int DURATION_IN_MINUTES = 10;
 
     private static ArrayList<Integer> schedulingValuesContainer = new ArrayList<Integer>();
-
-    private static boolean restartAlertsInProgress = false;
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -26,12 +25,12 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
             return true;
         }
 
-        if (restartAlertsInProgress) {
+        if (Main.restartAlertsInProgress) {
             Broadcasting.sendErrorResponse(sender, "Restart alerts have already been scheduled.");
             return true;
         }
 
-        restartAlertsInProgress = true;
+        Main.restartAlertsInProgress = true;
         Broadcasting.sendSuccessResponse(sender, "Beginning restart alerts (" + DURATION_IN_MINUTES + " minutes).");
 
         scheduleRestartAlerts();

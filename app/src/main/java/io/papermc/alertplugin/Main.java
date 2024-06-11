@@ -7,6 +7,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import io.papermc.alertplugin.commands.CommandBeginRestartAlerts;
 
 public class Main extends JavaPlugin implements Listener {
+
+    public static boolean restartAlertsInProgress = false;
     
     @Override
     public void onEnable() {
