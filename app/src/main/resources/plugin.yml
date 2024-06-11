@@ -9,3 +9,6 @@ commands:
   beginrestartalerts:
     description: Begin timed restart alerts
     usage: beginrestartalerts
+  cancelrestartalerts:
+    description: Cancel timed restart alerts
+    usage: cancelrestartalerts
