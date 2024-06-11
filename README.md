@@ -1,5 +1,5 @@
 # AlertPlugin
 
-Simple alert plugin for Java MC
+Alert scheduler plugin for Minecraft servers
 
 _Currently in development_
