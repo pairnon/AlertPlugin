@@ -9,6 +9,8 @@ commands:
   beginrestartalerts:
     description: Begin timed restart alerts
     usage: beginrestartalerts
+    aliases: [bra]
   cancelrestartalerts:
     description: Cancel timed restart alerts
     usage: cancelrestartalerts
+    aliases: [cra]
