@@ -41,20 +41,21 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
     private static void scheduleRestartAlerts() {
 
         Broadcasting.broadcastRedAlert("Server restarting in " + DURATION_IN_MINUTES + " minutes.");
-        Timer timer = new Timer();
+        
+        Main.restartAlertsTimer = new Timer();
 
         for (int i = 5; i >= 1; i--) {
             schedulingValuesContainer.add(i);
             int lastIndex = schedulingValuesContainer.size() - 1;
             if (i != 1) {
-                timer.schedule(new TimerTask() {
+                Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minutes.");
                     }
                 }, calculateDelayFromMinutes(i));
             } else {
-                timer.schedule(new TimerTask() {
+                Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minute.");
@@ -67,7 +68,7 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
         for (int i = 30; i >= 20; i -= 10) {
             schedulingValuesContainer.add(i);
             int lastIndex = schedulingValuesContainer.size() - 1;
-            timer.schedule(new TimerTask() {
+            Main.restartAlertsTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
@@ -79,14 +80,14 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
             schedulingValuesContainer.add(i);
             int lastIndex = schedulingValuesContainer.size() - 1;
             if (i != 1) {
-                timer.schedule(new TimerTask() {
+                Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
                     }
                 }, calculateDelayFromSeconds(i));
             } else {
-                timer.schedule(new TimerTask() {
+                Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " second.");
