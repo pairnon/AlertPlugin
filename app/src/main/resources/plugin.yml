@@ -1,5 +1,5 @@
 name: AlertPlugin
-version: 1.0.0
+version: 1.0.1
 main: io.papermc.alertplugin.Main
 description: Simple alert plugin
 author: pairnon
