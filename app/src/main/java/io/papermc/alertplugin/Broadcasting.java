@@ -23,6 +23,11 @@ public class Broadcasting {
         c.sendMessage(Component.text("[AP] " + message, NamedTextColor.RED));
     }
 
+    public static void broadcastMessage(String message) {
+        Bukkit.broadcast(Component.text("[Message] " + message, NamedTextColor.GOLD));
+        sendSoundToAllPlayers(Sound.BLOCK_NOTE_BLOCK_SNARE);
+    }
+
     public static void broadcastAlert(String message) {
         Bukkit.broadcast(Component.text("[ALERT] " + message, NamedTextColor.RED));
         sendSoundToAllPlayers(Sound.BLOCK_NOTE_BLOCK_SNARE);
