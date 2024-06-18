@@ -40,7 +40,7 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
 
     private static void scheduleRestartAlerts() {
 
-        Broadcasting.broadcastRedAlert("Server restarting in " + DURATION_IN_MINUTES + " minutes.");
+        Broadcasting.broadcastAlert("Server restarting in " + DURATION_IN_MINUTES + " minutes.");
         
         Main.restartAlertsTimer = new Timer();
 
@@ -51,14 +51,14 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
                 Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minutes.");
+                        Broadcasting.broadcastAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minutes.");
                     }
                 }, calculateDelayFromMinutes(i));
             } else {
                 Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minute.");
+                        Broadcasting.broadcastAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " minute.");
                     }
                 }, calculateDelayFromMinutes(i));
             }
@@ -71,7 +71,7 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
             Main.restartAlertsTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
+                    Broadcasting.broadcastAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
                 }
             }, calculateDelayFromSeconds(i));
         }
@@ -83,14 +83,14 @@ public class CommandBeginRestartAlerts implements CommandExecutor {
                 Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
+                        Broadcasting.broadcastAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " seconds.");
                     }
                 }, calculateDelayFromSeconds(i));
             } else {
                 Main.restartAlertsTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Broadcasting.broadcastRedAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " second.");
+                        Broadcasting.broadcastAlert("Server restarting in " + schedulingValuesContainer.get(lastIndex) + " second.");
                     }
                 }, calculateDelayFromSeconds(i));
             }

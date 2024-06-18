@@ -28,7 +28,7 @@ public class CommandBroadcastAlert implements CommandExecutor {
             message += " ";
         }
 
-        Broadcasting.broadcastRedAlert(message);
+        Broadcasting.broadcastAlert(message);
 
         return true;
     }
