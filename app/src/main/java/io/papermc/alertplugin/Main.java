@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import io.papermc.alertplugin.commands.CommandBeginRestartAlerts;
 import io.papermc.alertplugin.commands.CommandBroadcastAlert;
+import io.papermc.alertplugin.commands.CommandBroadcastMessage;
 import io.papermc.alertplugin.commands.CommandCancelRestartAlerts;
 
 public class Main extends JavaPlugin implements Listener {
@@ -22,6 +23,7 @@ public class Main extends JavaPlugin implements Listener {
         this.getCommand("beginrestartalerts").setExecutor(new CommandBeginRestartAlerts());
         this.getCommand("cancelrestartalerts").setExecutor(new CommandCancelRestartAlerts());
         this.getCommand("broadcastalert").setExecutor(new CommandBroadcastAlert());
+        this.getCommand("broadcastmessage").setExecutor(new CommandBroadcastMessage());
     }
 
 }

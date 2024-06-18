@@ -17,3 +17,6 @@ commands:
   broadcastalert:
     description: Broadcast an alert to all players
     usage: broadcastalert <message>
+  broadcastmessage:
+    description: Broadcast a message to all players
+    usage: broadcastmessage <message>
