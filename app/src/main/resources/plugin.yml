@@ -1,5 +1,5 @@
 name: AlertPlugin
-version: 1.0.2
+version: 1.0.3
 main: io.papermc.alertplugin.Main
 description: Alert scheduler
 author: pairnon
